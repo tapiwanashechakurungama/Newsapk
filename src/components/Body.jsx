@@ -1,15 +1,14 @@
 import { useState, useEffect } from "react";
 import { GiSelfLove } from "react-icons/gi";
 
-
 function Body() {
   const [data, setData] = useState([]);
 
-  const [loading , setLoading ] = useState(false)
-  const [error , setError] = useState(null)
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
   const [selectedArticle, setSelectedArticle] = useState(null); // Track selected article
 
-  const [love , setLove] = useState("black")
+  const [love, setLove] = useState("black");
 
   const handleArticleClick = (article) => {
     setSelectedArticle(article); // Selecting articles on click  article on click
@@ -25,17 +24,16 @@ function Body() {
       const response = await fetch(
         "https://newsapi.org/v2/everything?q=apple&from=2024-08-18&to=2024-08-18&sortBy=popularity&apiKey=149802131f3242358ba6da013dbc31cf"
       );
-      if(!response.ok){
-        setError("Failed to fetch data here");
+      if (response.status != "ok") {
+        setError("Failed to fetch data here" + response.status);
         setLoading(false);
-        setData(null)
+        setData(null);
         return;
-
-
       }
+
       const data = await response.json();
-      
-      setData(()=>{
+
+      setData(() => {
         setLoading(false);
         return data.articles;
       });
@@ -84,46 +82,47 @@ function Body() {
         </div>
       ) : (
         <div className="row container pt-[10vh]">
-          {data && data.map((onedata) => (
-            <div className="container" key={Math.random() * 80000}>
-              <div className="container max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div
-                  className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 container flex justify-between mt-10"
-                  key={Math.random() * 50000}
-                >
-                  <img
-                    src={onedata.urlToImage}
-                    alt=""
-                    className="rounded"
-                    width={800}
-                  />
-                  <div className="content flex flex-col gap-3">
-                    <h1>{onedata.title}</h1>
-                    <p className="aurthor">
-                      Author
-                      <span className="text-orange-400">
-                        {" "}
-                        :{onedata.author}
-                      </span>
-                    </p>
-                    <p className="time">
-                      Posted at{" "}
-                      <span className="text-orange-400">
-                        {" "}
-                        :{onedata.publishedAt}
-                      </span>
-                    </p>
-                    <button
-                      className="article text-left p-2 bg-green-400 text-white rounded-sm"
-                      onClick={() => handleArticleClick(onedata)}
-                    >
-                      Read Article
-                    </button>
+          {data &&
+            data.map((onedata) => (
+              <div className="container" key={Math.random() * 80000}>
+                <div className="container max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                  <div
+                    className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 container flex justify-between mt-10"
+                    key={Math.random() * 50000}
+                  >
+                    <img
+                      src={onedata.urlToImage}
+                      alt=""
+                      className="rounded"
+                      width={800}
+                    />
+                    <div className="content flex flex-col gap-3">
+                      <h1>{onedata.title}</h1>
+                      <p className="aurthor">
+                        Author
+                        <span className="text-orange-400">
+                          {" "}
+                          :{onedata.author}
+                        </span>
+                      </p>
+                      <p className="time">
+                        Posted at{" "}
+                        <span className="text-orange-400">
+                          {" "}
+                          :{onedata.publishedAt}
+                        </span>
+                      </p>
+                      <button
+                        className="article text-left p-2 bg-green-400 text-white rounded-sm"
+                        onClick={() => handleArticleClick(onedata)}
+                      >
+                        Read Article
+                      </button>
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
-          ))}
+            ))}
 
           {loading && <h1>Loading..............</h1>}
 
