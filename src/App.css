@@ -1,0 +1,148 @@
+
+
+
+
+
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+    display: block;
+}
+body {
+    line-height: 1;
+    overflow-x: hidden !important;
+}
+ol, ul {
+    list-style: none;
+}
+blockquote, q {
+    quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+    content: '';
+    content: none;
+}
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+   *{
+    font-family: Arial, Helvetica, sans-serif;
+   }
+.Navbar{
+  display: none;
+
+}
+.phone-humburger{
+  display: block;
+  height: 5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  justify-content: space-between;
+  background-color: white;
+  box-shadow: 0 0 0.5rem black;
+  position: fixed;
+  width: 100%;
+}
+
+.background{
+  background-image: url(./../public/portrait-cheering-young-businesswoman-clenching-her-fist_92152-32304.jpg);
+  background-position: 0 0;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100vw !important;
+  height: 100vh;
+  background-attachment: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.full-article{
+  display: flex;
+  flex-direction: column;
+}
+
+/*
+::::::::::::::::::::::::::::::::::::::::::::::::::::
+Bootstrap 4 breakpoints
+*/
+
+/* 
+Extra small devices (portrait phones, less than 576px) 
+No media query since this is the default in Bootstrap because it is "mobile first"
+*/
+
+/* Small devices (landscape phones, 576px and up) */
+@media (min-width: 568px) { 
+     
+
+}
+
+/* Medium devices (tablets, 768px and up) The navbar toggle appears at this breakpoint */
+@media (min-width: 768px) {
+  .Navbar{
+    height: 5rem;
+  box-shadow: 0 0 2rem black;
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  display: block;
+  position: fixed;
+  width: 100vw;
+  background-color: white;
+  padding-right: 10px;
+  }
+  .ul-links{
+    margin-top: 9px;
+  }
+  .phone-humburger{
+    display: none;
+  }
+ 
+
+}
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+  
+}
+
+/* Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+   .full-article{
+  display: flex;
+  flex-direction: row;
+}
+}
+/*
+::::::::::::::::::::::::::::::::::::::::::::::::::::
+Custom media queries
+*/
+
+/* Set width to make card deck cards 100% width */
+@media (max-width: 950px) { 
+
+}
+
