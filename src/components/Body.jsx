@@ -4,6 +4,9 @@ import { GiSelfLove } from "react-icons/gi";
 
 function Body() {
   const [data, setData] = useState([]);
+
+  const [loading , setLoading ] = useState(false)
+  const [error , setError] = useState(null)
   const [selectedArticle, setSelectedArticle] = useState(null); // Track selected article
 
   const [love , setLove] = useState("black")
@@ -18,11 +21,24 @@ function Body() {
 
   useEffect(() => {
     async function getData() {
+      setLoading(true);
       const response = await fetch(
         "https://newsapi.org/v2/everything?q=apple&from=2024-08-18&to=2024-08-18&sortBy=popularity&apiKey=149802131f3242358ba6da013dbc31cf"
       );
+      if(!response.ok){
+        setError("Failed to fetch data here");
+        setLoading(false);
+        setData(null)
+        return;
+
+
+      }
       const data = await response.json();
-      setData(data.articles);
+      
+      setData(()=>{
+        setLoading(false);
+        return data.articles;
+      });
     }
     getData();
   }, []);
@@ -108,6 +124,10 @@ function Body() {
               </div>
             </div>
           ))}
+
+          {loading && <h1>Loading..............</h1>}
+
+          {error && <h1>The following error occured : {error}</h1>}
         </div>
       )}
     </>
