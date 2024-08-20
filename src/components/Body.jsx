@@ -68,7 +68,7 @@ function Body() {
         </div>
       ) : (
         <div className="row container pt-[10vh]">
-          {data.map((onedata) => (
+          {data && data.map((onedata) => (
             <div className="container" key={Math.random() * 80000}>
               <div className="container max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div
