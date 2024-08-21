@@ -66,7 +66,7 @@ function Body() {
         </div>
       ) : (
         <div className="row container pt-[10vh]">
-          {articles.length > 0 && (
+          {articles && (
             <div className="row container pt-[10vh]">
               {articles.map((article) => (
                 <div className="container" key={article.url}>
